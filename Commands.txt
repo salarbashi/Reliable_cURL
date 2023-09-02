@@ -1,0 +1,8 @@
+go run router.go --drop-rate=0.2 --max-delay=10ms
+
+python httpfs.py -p 8007 -v 
+
+python httpc.py get 'http://localhost:8007/' -v
+python httpc.py get 'http://localhost:8007/TextFile.txt' -v
+python httpc.py get 'http://localhost:8007/6461_Demo3.txt' -v
+python httpc.py post 'http://localhost:8007/NewTextFile.txt' -H 'Content-Length: 17' -H 'Content-Type: text/html; charset=utf-8' -d '{"Assignment": 1}' -v
